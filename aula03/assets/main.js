@@ -28,10 +28,10 @@ function novaTarefa() {
 
   tabela.push(novoRegistro);
 
+  desenhaTabela();
+
   console.log(tabela); //* resultado da aula 2
 }
-
-// TODO: PARTE NOVA DE CÓDIGO
 
 // Desenhando a tabela com JS
 function desenhaTabela() {

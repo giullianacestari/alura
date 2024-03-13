@@ -1,4 +1,4 @@
-// ? Desenhando a tabela com JS
+// ? Formatando data e criando um ID
 
 // Cria a lista "tabela"
 let tabela = [
@@ -9,7 +9,7 @@ let tabela = [
     feito: false,
     id: "ad980a9a-d480-e807-b06d-0f1df82337ad",
   },
-]; // * excluir e deixar vazio no final do projeto
+];
 
 // Aula 2 - adicionar nova tarefa
 function novaTarefa() {
@@ -19,7 +19,7 @@ function novaTarefa() {
 
   // Novo registro a ser adicionado
   let novoRegistro = {
-    id: "identificação única",
+    id: geraId(), //! resultado novo
     disciplina: disciplina,
     descricao: descricao,
     data: data,
@@ -28,10 +28,10 @@ function novaTarefa() {
 
   tabela.push(novoRegistro);
 
+  desenhaTabela();
+
   console.log(tabela); //* resultado da aula 2
 }
-
-// TODO: PARTE NOVA DE CÓDIGO
 
 // Desenhando a tabela com JS
 function desenhaTabela() {
@@ -51,9 +51,42 @@ function desenhaTabela() {
 
     disciplinaCell.textContent = item.disciplina;
     descricaoCell.textContent = item.descricao;
-    dataCell.textContent = item.data; // 2º resultado: formataData(item.data)
+    dataCell.textContent = formataData(item.data); // ! resultado novo
   });
 }
 
 //desenhando assim que carrega a página
 desenhaTabela();
+
+// TODO: PARTE NOVA DE CÓDIGO
+
+function formataData(data) {
+  const dataObj = new Date(data + "T00:00:00");
+  const dia = dataObj.getDate().toString().padStart(2, "0");
+  const mes = (dataObj.getMonth() + 1).toString().padStart(2, "0"); // Janeiro é 0, então adicionamos 1
+  const ano = dataObj.getFullYear().toString().slice(-2); // Pega os últimos dois dígitos do ano
+  return `${dia}/${mes}/${ano}`;
+}
+
+// Criando um id único
+function geraId() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return (
+    s4() +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    s4() +
+    s4()
+  );
+}
