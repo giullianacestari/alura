@@ -4,12 +4,12 @@
 let tabela = [
   {
     disciplina: "Matemática",
-    descricao: "thhngrfb",
+    descricao: "página 22, exercício 15",
     data: "2024-08-02",
     feito: false,
     id: "ad980a9a-d480-e807-b06d-0f1df82337ad",
   },
-]; // * excluir e deixar vazio no final do projeto
+];
 
 // Aula 2 - adicionar nova tarefa
 function novaTarefa() {

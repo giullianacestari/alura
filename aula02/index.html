@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Alura Planner</title>
+    <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
     <main class="container">
-        <aside>
+        <aside class="menu-lateral">
             <h1>Alura Planner</h1>
             <hr>
             <!-- Adicionar nova tarefa -->
@@ -19,11 +20,9 @@
 
                 <div>
                     <label for="disciplina">Disciplina:</label>
-                    <select id="disciplina">
+                    <select id="disciplina" class="disciplina">
                         <option disabled>Escolha uma disciplina</option>
-                        <option value="Matemática">Matemática</option>
-                        <option value="Português">Português</option>
-                        <option value="Química">Química</option>
+
                     </select>
 
                 </div>
@@ -44,14 +43,16 @@
             <!-- Botões laterais -->
             <div class="botoes">
 
-                <!-- <div>
+                <div>
                     <button class="filtrar" id="filtrar">Filtrar por disciplina</button>
 
-                    <select id="menuFiltrar" class="menuFiltrar lista-disciplinas" onchange="filtraRequisicoes()">
+                    <select id="menuFiltrar" class="disciplina" onchange="filtraTarefas()">
                         <option value="" selected>Todas</option>
                     </select>
-                </div> -->
+                </div>
                 <button class="ordenar" id="ordenar">Ordenar <br> por prazo</button>
+
+            </div>
         </aside>
         <section>
             <table>
@@ -61,8 +62,8 @@
                         <th>Tarefa</th>
                         <th>Prazo</th>
                         <th>Feito</th>
-                        <th>Progresso</th>
-                        <th></th>
+                        <!-- <th>Progresso</th> -->
+                        <th class="invisivel"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,7 +80,11 @@
         </section>
     </main>
 
-    <script src="assets/main.js"></script>
+    <script src="/assets/disciplina.js"></script>
+    <script src="/assets/localStorage.js"></script>
+    <script src="/assets/main.js"></script>
+    <script src="/assets/filtrar.js"></script>
+    <script src="/assets/ordenar.js"></script>
 </body>
 
 </html>
