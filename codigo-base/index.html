@@ -11,13 +11,16 @@
 
 <body>
     <main class="container">
+        <!-- Conteúdo lateral da página (lado esquerdo) -->
         <aside class="menu-lateral">
+            <!-- Título -->
             <h1>Alura Planner</h1>
             <hr>
-            <!-- Adicionar nova tarefa -->
+            <!-- Formulário para adicionar nova tarefa -->
             <form>
                 <h2>Adicionar nova tarefa</h2>
 
+                <!-- Campo "disciplina" -->
                 <div>
                     <label for="disciplina">Disciplina:</label>
                     <select id="disciplina" class="disciplina">
@@ -26,23 +29,26 @@
                     </select>
 
                 </div>
+                <!-- Campo "tarefa" -->
                 <div>
                     <label for="descricao">Tarefa:</label>
                     <input id="descricao" name="tarefa" type="text" placeholder="digite sua tarefa" required>
                     <br>
                 </div>
+                <!-- Campo "prazo" -->
                 <div>
                     <label for="data-de-conclusao">Prazo:</label>
                     <input type="date" id="data-de-conclusao" required>
                 </div>
 
-                <!-- Botão adicionar -->
+                <!-- Botão "enviar" -->
                 <button type="button" class="adicionar" onclick="novaTarefa()">Enviar</button>
             </form>
 
-            <!-- Botões laterais -->
+            <!-- Botões adicionais -->
             <div class="botoes">
 
+                <!-- Botão "filtrar por disciplina" -->
                 <div>
                     <button class="filtrar" id="filtrar">Filtrar por disciplina</button>
 
@@ -50,41 +56,13 @@
                         <option value="" selected>Todas</option>
                     </select>
                 </div>
+                <!-- Botão "ordenar por prazo" -->
                 <button class="ordenar" id="ordenar">Ordenar <br> por prazo</button>
 
             </div>
         </aside>
-        <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Disciplina</th>
-                        <th>Tarefa</th>
-                        <th>Prazo</th>
-                        <th>Feito</th>
-                        <!-- <th>Progresso</th> -->
-                        <th class="invisivel"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
     </main>
 
-    <script src="/assets/disciplina.js"></script>
-    <script src="/assets/localStorage.js"></script>
-    <script src="/assets/main.js"></script>
-    <script src="/assets/filtrar.js"></script>
-    <script src="/assets/ordenar.js"></script>
 </body>
 
 </html>
