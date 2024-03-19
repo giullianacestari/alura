@@ -45,10 +45,18 @@ function desenhaTabela(listaTarefas = tabela) {
 
     disciplinaCell.textContent = item.disciplina;
     descricaoCell.textContent = item.descricao;
-    dataCell.textContent = item.data;
+    dataCell.textContent = formataData(item.data);
     feitoCell.textContent = item.feito ? "Sim" : "Não";
   });
 }
 
 //desenhando assim que carrega a página
 desenhaTabela();
+
+function formataData(data) {
+  const dataObj = new Date(data + "T00:00:00");
+  const dia = dataObj.getDate().toString().padStart(2, "0");
+  const mes = (dataObj.getMonth() + 1).toString().padStart(2, "0"); // Janeiro é 0, então adicionamos 1
+  const ano = dataObj.getFullYear().toString().slice(-2); // Pega os últimos dois dígitos do ano
+  return `${dia}/${mes}/${ano}`;
+}
