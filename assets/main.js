@@ -17,7 +17,7 @@ function novaTarefa() {
 
   // padrão de registro a ser adicionado
   let novoRegistro = {
-    id: "id-único",
+    id: geraId(),
     disciplina: disciplina,
     descricao: descricao,
     data: data,
@@ -26,6 +26,8 @@ function novaTarefa() {
 
   tabela.push(novoRegistro);
   desenhaTabela();
+
+  console.log(novoRegistro.id);
 }
 
 // Desenhando a tabela com JS
@@ -82,4 +84,6 @@ function geraId() {
     s4() +
     s4()
   );
+
 }
+
