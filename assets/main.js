@@ -17,7 +17,7 @@ function novaTarefa() {
 
   // padrão de registro a ser adicionado
   let novoRegistro = {
-    id: "id-único",
+    id: geraId(),
     disciplina: disciplina,
     descricao: descricao,
     data: data,
@@ -42,16 +42,73 @@ function desenhaTabela(listaTarefas = tabela) {
     let descricaoCell = row.insertCell(1);
     let dataCell = row.insertCell(2);
     let feitoCell = row.insertCell(3);
+    let removerCell = row.insertCell(4);
 
     disciplinaCell.textContent = item.disciplina;
     descricaoCell.textContent = item.descricao;
     dataCell.textContent = formataData(item.data);
-    feitoCell.textContent = item.feito ? "Sim" : "Não";
+    feitoCell.appendChild(verificaFeito(item.feito, item.id));
+    removerCell.appendChild(desenhaBotao(item.id));
   });
 }
 
 //desenhando assim que carrega a página
 desenhaTabela();
+
+//cria o elemento html
+function verificaFeito(status, id) {
+  const marcaComoFeito = document.createElement("input");
+  marcaComoFeito.type = "checkbox";
+  //Definindo checkboxes marcados
+  marcaComoFeito.checked = status;
+  // Definindo o id do checkbox
+  marcaComoFeito.dataset.id = id;
+
+  // Ao clicar no checkbox, ativa e atualiza o campo FEITO
+  marcaComoFeito.addEventListener("click", (element) => {
+    // Pegando o alvo clicado
+    let inputClicado = element.target;
+
+    // "Marca como feito" percorrendo a lista de tarefas
+    tabela.forEach((tarefa) => {
+      // Verifica se o id da tarefa é igual ao id do input clicado
+      if (tarefa.id == inputClicado.dataset.id) {
+        tarefa.feito = inputClicado.checked;
+      }
+    });
+    // ! VERIFICAÇÃO: console.log(tabela);
+
+    //desenha a tabela novamente
+    desenhaTabela();
+  });
+
+  //retorna o input criado
+  return marcaComoFeito;
+}
+
+function desenhaBotao(id) {
+  // Adicionado botão "Remover" em cada linha da mesma maneira do checkbox
+  const botaoRemover = document.createElement("button");
+
+  botaoRemover.innerText = "Remover";
+  // Definindo `data-id` do botao remover
+  botaoRemover.dataset.id = id;
+
+  botaoRemover.classList.add("remover");
+
+  // Ao clicar no checkbox, ativa e atualiza o campo FEITO
+  botaoRemover.addEventListener("click", (element) => {
+    // Removendo a tarefa da lista
+    tabela = tabela.filter((tarefa) => {
+      return tarefa.id != id;
+    });
+
+    //desenha a tabela novamente
+    desenhaTabela();
+  });
+
+  return botaoRemover;
+}
 
 function formataData(data) {
   const dataObj = new Date(data + "T00:00:00");
