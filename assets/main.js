@@ -17,7 +17,7 @@ function novaTarefa() {
 
   // padrão de registro a ser adicionado
   let novoRegistro = {
-    id: "id-único",
+    id: geraId(),
     disciplina: disciplina,
     descricao: descricao,
     data: data,
