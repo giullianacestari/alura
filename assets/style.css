@@ -105,18 +105,12 @@ button {
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 1px solid transparent;
 }
 
 .filtrar,
 .ordenar {
     font-size: large;
-}
-
-
-.remover {
-    border-radius: 20px;
-    color: #ffffff;
-
 }
 
 button.adicionar {
@@ -134,7 +128,8 @@ button.ordenar {
 
 button.remover {
     background-color: var(--vermelho);
-    border: none;
+    border-radius: 20px;
+    color: #ffffff;
 }
 
 /* Efeito de transição ao passar o mouse */
@@ -143,7 +138,6 @@ button.remover {
 .ordenar:hover,
 .remover:hover {
     background-color: #ffffff;
-    border: 1px solid;
 }
 
 .adicionar:hover {
@@ -160,6 +154,7 @@ button.remover {
 
 .remover:hover {
     color: var(--vermelho);
+    border: 1px solid var(--vermelho);
 }
 
 section {
