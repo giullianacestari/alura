@@ -9,21 +9,3 @@ let tabela = [
     },
 ];
 
-// adiciona uma nova tarefa na lista "tabela"
-function novaTarefa() {
-  let disciplina = document.querySelector("#disciplina").value;
-  let descricao = document.querySelector("#descricao").value;
-  let data = document.querySelector("#data-de-conclusao").value;
-
-  // padrão de registro a ser adicionado
-  let novoRegistro = {
-    id: "id-único",
-    disciplina: disciplina,
-    descricao: descricao,
-    data: data,
-    feito: false,
-  };
-
-  tabela.push(novoRegistro);
-  console.log(tabela);
-}
