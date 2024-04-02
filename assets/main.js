@@ -46,7 +46,7 @@ function desenhaTabela(listaTarefas = tabela) {
     disciplinaCell.textContent = item.disciplina;
     descricaoCell.textContent = item.descricao;
     dataCell.textContent = formataData(item.data);
-    feitoCell.appendChild(verificaFeito(item.feito, item.id));
+    feitoCell.textContent = item.feito ? "Sim" : "Não";
   });
 }
 
