@@ -53,36 +53,6 @@ function desenhaTabela(listaTarefas = tabela) {
 //desenhando assim que carrega a página
 desenhaTabela();
 
-//cria o elemento html
-function verificaFeito(status, id) {
-  const marcaComoFeito = document.createElement("input");
-  marcaComoFeito.type = "checkbox";
-  //Definindo checkboxes marcados
-  marcaComoFeito.checked = status;
-  // Definindo o id do checkbox
-  marcaComoFeito.dataset.id = id;
-
-  // Ao clicar no checkbox, ativa e atualiza o campo FEITO
-  marcaComoFeito.addEventListener("click", (element) => {
-    // Pegando o alvo clicado
-    let inputClicado = element.target;
-
-    // "Marca como feito" percorrendo a lista de tarefas
-    tabela.forEach((tarefa) => {
-      // Verifica se o id da tarefa é igual ao id do input clicado
-      if (tarefa.id == inputClicado.dataset.id) {
-        tarefa.feito = inputClicado.checked;
-      }
-    });
-    // ! VERIFICAÇÃO: console.log(tabela);
-
-    //desenha a tabela novamente
-    desenhaTabela();
-  });
-
-  //retorna o input criado
-  return marcaComoFeito;
-}
 
 function formataData(data) {
   const dataObj = new Date(data + "T00:00:00");
